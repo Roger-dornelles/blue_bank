@@ -2,17 +2,22 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
-    min-height:100vh;
+    min-height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #73C2FF;
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     font-size:16px;
 
-    span,p{
+    p{
         margin-top:50px;
+        font-size:1.2em;
+    }
+
+    span{
+        margin-top: 30px;
         font-size:1.1em;
     }
 
@@ -21,6 +26,7 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         flex-direction: column;
+        margin-top:50px;
 
         label{
             width: 100%;
@@ -44,14 +50,11 @@ export const Container = styled.div`
                 color: #fff;
                 padding-left: 35px;
             }
-
             p{
                 position: absolute;
                 margin-top: 75px;
                 color: #b90000;
             }
-
         }
-
     }
 `;

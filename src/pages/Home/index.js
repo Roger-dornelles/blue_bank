@@ -12,7 +12,7 @@ const Home = ()=>{
 
             <Link to='' >Acessar minha conta</Link>
 
-            <span>Você é novo aqui? <Link to='/register' >Começar</Link></span>
+            <span>Você é novo aqui? <Link to='/registerEmail' >Começar</Link></span>
         </Container>
     )
 };

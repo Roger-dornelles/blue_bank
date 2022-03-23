@@ -1,27 +1,49 @@
-import React, { useState } from 'react';
-import { Container} from './styled';
+import React,{ useState } from 'react';
+import { Container } from './styled';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+// components
+import ButtonAdvance from '../../components/ButtonAdvance';
 
 // react-hook-form
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 
+//helpers
 import SchemaEmail from '../../helpers/SchemaEmail';
 
 // icons 
-import { MdEmail, MdMarkEmailRead } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 
 const RegisterEmail = ()=>{
-    const [ isEmail, setIsEmail ] = useState(false)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [ warning, setWarning ] = useState('');
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(SchemaEmail)
     });
     const onSubmit = (data) =>{
-        if(data){
-            setIsEmail(true);
-        
-        }else{
-            setIsEmail(false);
+
+        try{
+            if(data.email){
+                dispatch({
+                    type:'CREATE_EMAIL',
+                    payload: { email: data.email}
+                });
+    
+                setTimeout(()=>{
+                    navigate('/registerCpf');
+                },2700);
+            }
+        }catch(err){
+            setWarning('Ocorreu um erro tente novamente mais tarde.');
+            setTimeout(()=>{
+                setWarning('');
+            },2700)
         }
+        
 
         
     };
@@ -35,12 +57,12 @@ const RegisterEmail = ()=>{
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>
-                    {!isEmail ? <MdEmail /> : <MdMarkEmailRead style={{color:'#00ff00'}} /> }
-                    <input {...register("email")} />
+                    <MdEmail /><input {...register("email")} />
                     <p>{errors.email?.message}</p>
+                    {warning && <p>{warning}</p>}
                 </label>
                 <label>
-                    <button type="submit">Avançar</button>
+                    <ButtonAdvance>Avançar</ButtonAdvance>
                 </label>
             </form>
         </Container>
