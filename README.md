@@ -25,4 +25,6 @@ Após ter feito o clone do projeto entrar dentro da pasta do projeto, no prompt 
 
 :white_check_mark: react-hook-form
 
+:white_check_mark: remask (mascara de input)
+
 
