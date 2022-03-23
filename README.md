@@ -27,4 +27,8 @@ Após ter feito o clone do projeto entrar dentro da pasta do projeto, no prompt 
 
 :white_check_mark: remask (mascara de input)
 
+## Sobre
+
+:heavy_check_mark: Criação do projeto Blue Bank para a simulação de um banco online onde o usuario podera criar um cadastro de pessoa fisica com infomações de email, cpf, senha e nome do usuario, após a criação do cadastro podera efetuar seu login no sistema e podera verificar seu saldo em conta e saldo disponivel no cartão de credito e fazer simulação de despesas
+
 
