@@ -40,7 +40,7 @@ const RegisterPassword = ()=>{
                 });
 
                 setTimeout(()=>{
-                    navigate('./createAccount');
+                    navigate('/createAccount');
                 },2700);
                 
             }

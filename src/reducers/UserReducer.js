@@ -21,6 +21,10 @@ const UserReducer = (state=initialState, action) =>{
         case 'CREATE_PASSWORD':
             return { ...state, password:action.payload.password };
         break;
+
+        case 'CREATE_NAME':
+            return { ...state, name:action.payload.name };
+        break;
     }
 
     return state;

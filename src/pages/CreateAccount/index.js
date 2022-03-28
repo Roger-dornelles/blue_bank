@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Container } from './styled';
 
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 // components
 import ButtonAdvance from '../../components/ButtonAdvance';
 
@@ -8,8 +11,10 @@ import ButtonAdvance from '../../components/ButtonAdvance';
 import { MdPerson } from "react-icons/md";
 
 const CreateAccount = ()=>{
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const [ name, setName ] = useState('');
+    let [ name, setName ] = useState('');
     const [ warning, setWarning ] = useState('');
 
     const handleCreateAccount = (e)=>{
@@ -30,7 +35,18 @@ const CreateAccount = ()=>{
                 let regex = /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/;
                 let isValidName = regex.test(name);
                 if(isValidName) {
-                    
+
+                    name = name.toLowerCase();
+                    const newName = name.charAt(0).toUpperCase() + name.slice(1);
+
+                    dispatch({
+                        type:'CREATE_NAME',
+                        payload: {name: newName}
+                    });
+
+                    setTimeout(()=>{
+                        navigate('/dashboard');
+                    },2500);
 
                 }else{
                     setWarning('Nome Invalido.');
