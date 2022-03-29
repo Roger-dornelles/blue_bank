@@ -8,6 +8,8 @@ import RegisterCpf from './pages/RegisterCpf';
 import RegisterPassword from './pages/RegisterPassword';
 import CreateAccount from './pages/CreateAccount';
 import Dashboard from './pages/Dashboard';
+import Signin from './pages/Signin';
+import ConfirmSignin from './pages/ConfirmSignin';
 
 const routes = ()=> {
 
@@ -20,6 +22,8 @@ const routes = ()=> {
             <Route path='/registerPassword' element={ <RegisterPassword /> } />
             <Route path='/createAccount' element={ <CreateAccount /> } />
             <Route path='/dashboard' element={ <Dashboard /> } />
+            <Route path='/signin' element={ <Signin /> } />
+            <Route path='/confirm_signin' element={ <ConfirmSignin /> } />
         </Routes>
     )
 };
