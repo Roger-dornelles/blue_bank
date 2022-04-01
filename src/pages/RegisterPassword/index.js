@@ -47,8 +47,6 @@ const RegisterPassword = ()=>{
         }catch(error){
             setWarning('Ocorreu um erro tente novamente mais tarde.');
         }
-
-        console.log(password)
     }
 
     return(

@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 // components
 import ButtonAdvance from '../../components/ButtonAdvance';
 
+// icons 
+import { MdEmail } from "react-icons/md";
+
 
 const Signin = ()=>{
     const navigate = useNavigate();
@@ -34,7 +37,7 @@ const Signin = ()=>{
 
             <form onSubmit={handleSubmitSignin}>
                 <label>
-                    <input type="email" value={email} onChange={e=>setEmail(e.target.value)} />
+                <MdEmail /><input type="email" value={email} onChange={e=>setEmail(e.target.value)} />
                     {warning && <p>{warning}</p>}
                 </label>
                 <label>

@@ -11,6 +11,8 @@ import Dashboard from './pages/Dashboard';
 import Signin from './pages/Signin';
 import ConfirmSignin from './pages/ConfirmSignin';
 
+import NotFound from './pages/NotFound';
+
 const routes = ()=> {
 
     return (
@@ -24,6 +26,8 @@ const routes = ()=> {
             <Route path='/dashboard' element={ <Dashboard /> } />
             <Route path='/signin' element={ <Signin /> } />
             <Route path='/confirm_signin' element={ <ConfirmSignin /> } />
+
+            <Route path='*' element={ <NotFound /> } />
         </Routes>
     )
 };

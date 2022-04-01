@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 // components
 import ButtonAdvance from '../../components/ButtonAdvance';
 
+//icon
+import { MdHttps } from "react-icons/md";
+
 
 const Signin = ()=>{
     const navigate = useNavigate();
@@ -33,7 +36,7 @@ const Signin = ()=>{
 
             <form onSubmit={handleConfirmSignin}>
                 <label>
-                    <input type="text" value={password} onChange={e=>setPassword(e.target.value)} />
+                    <MdHttps /><input type="text" value={password} onChange={e=>setPassword(e.target.value)} />
                     {warning && <p>{warning}</p>}
                 </label>
                 <label>

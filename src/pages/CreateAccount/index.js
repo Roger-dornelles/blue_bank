@@ -58,7 +58,6 @@ const CreateAccount = ()=>{
             }
 
         }catch(error){
-            console.log(error)
             setWarning('Ocorreu um erro tente novamente mais tarde.');
         }
     }
