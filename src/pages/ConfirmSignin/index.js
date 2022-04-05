@@ -19,7 +19,7 @@ const Signin = ()=>{
     const handleConfirmSignin = (e)=>{
         e.preventDefault();
 
-        if(password){
+        if(password.length >= 8){
             navigate('/dashboard');
         }else{
             setWarning('Digite sua senha.');

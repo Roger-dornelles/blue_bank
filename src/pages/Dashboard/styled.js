@@ -51,7 +51,7 @@ export const Container = styled.div`
 
 
             .balance, .credit_card, .loan, .pix, .transfer, .donation{
-                width:calc(80% / 3);
+                width:320px;
                 min-height: 200px;
                 display: flex;
                 flex-direction: column;

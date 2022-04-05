@@ -17,18 +17,18 @@ const Dashboard = ()=>{
                 </div>
 
                 <div className="description">
-                    <Link to='/' className="balance">
+                    <Link to='/conta_corrente' className="balance">
                         <p>Saldo Atual</p>
                         <span>R$ 2.557,45</span>
                     </Link>
 
-                    <Link to='/' className="credit_card">
+                    <Link to='/cartao_credito' className="credit_card">
                         <p>Cartão de Crédito</p>
                         <span>Limite Disponivel</span>
                         <span>R$ 3.115,09</span>
                     </Link>
 
-                    <Link to='/' className="loan">
+                    <Link to='/emprestimo' className="loan">
                         <p>Emprestimo</p>
                         <span>
                             Precisando de dinheiro?<br />
