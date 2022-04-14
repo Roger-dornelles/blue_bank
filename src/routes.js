@@ -13,6 +13,13 @@ import ConfirmSignin from './pages/ConfirmSignin';
 import CurrentAccount from './pages/CurrentAccount';
 import CreditCard from './pages/CreditCard';
 import Loan from './pages/Loan';
+import ConfirmLoan  from './pages/ConfirmLoan';
+import Pix from './pages/Pix';
+import ConfirmPix from './pages/ConfirmPix';
+import PayTicket from './pages/PayTicket';
+import Transfer from './pages/Transfer';
+import Donation from './pages/Donation';
+import ConfirmDonation from './pages/ConfirmDonation'
 
 import NotFound from './pages/NotFound';
 
@@ -32,6 +39,13 @@ const routes = ()=> {
             <Route path='/conta_corrente' element={ < CurrentAccount /> } />
             <Route path='/cartao_credito' element={ <CreditCard /> } />
             <Route path='/emprestimo' element={ <Loan /> } />
+            <Route path='/contratar_emprestimo' element={ <ConfirmLoan /> } />
+            <Route path='/pix' element={ <Pix /> } />
+            <Route path='/confirmar_pix' element={ <ConfirmPix /> } />
+            <Route path='/pagar_boleto' element={ <PayTicket /> } />
+            <Route path='/transferencia' element={ <Transfer /> } />
+            <Route path='/doacao' element={ <Donation /> } />
+            <Route path='/fazer_doacao' element={ <ConfirmDonation /> } />
 
             <Route path='*' element={ <NotFound /> } />
         </Routes>

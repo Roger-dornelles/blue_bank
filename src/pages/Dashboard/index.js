@@ -36,17 +36,17 @@ const Dashboard = ()=>{
                         </span>
                     </Link>
 
-                    <Link to='/' className="pix">
+                    <Link to='/pix' className="pix">
                         <p>Pix</p>
                         <span>Deseja transferir ou pagar um boleto</span>
                     </Link>
 
-                    <Link to='/' className="transfer">
+                    <Link to='/transferencia' className="transfer">
                         <p>Transferencia</p>
                         <span>Deseja fazer uma transferencia de valores</span>
                     </Link>
 
-                    <Link to='/' className="donation">
+                    <Link to='/doacao' className="donation">
                         <p>Doar</p>
                         <span>Ajude uma instituição</span>
                     </Link>
