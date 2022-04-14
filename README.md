@@ -15,7 +15,7 @@ Após ter feito o clone do projeto entrar dentro da pasta do projeto, no prompt 
 
 :heavy_check_mark: Para rodar o projeto no navegador digitar o comando :point_right: ` npm start `
 
-### Api utilizada para requisições ao BD: 
+### Api utilizada para requisições ao BD:  https://github.com/Roger-dornelles/api-bluebank 
 
 ## Tecnologias usadas
 
