@@ -15,6 +15,8 @@ Após ter feito o clone do projeto entrar dentro da pasta do projeto, no prompt 
 
 :heavy_check_mark: Para rodar o projeto no navegador digitar o comando :point_right: ` npm start `
 
+### Api utilizada para requisições ao BD: 
+
 ## Tecnologias usadas
 
 :white_check_mark: React.js
