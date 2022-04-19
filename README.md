@@ -11,9 +11,9 @@ Vai criar uma pasta com o nome do projeto.
 
 Após ter feito o clone do projeto entrar dentro da pasta do projeto, no prompt de comando para entrar dentro da pasta digitar :point_right: cd "nome da pasta do projeto"
 
-:heavy_check_mark: Dentro da pasta do projeto fazer a instalação das dependencias do projeto usando o comando :point_right: `npm install`
+:heavy_check_mark: Dentro da pasta do projeto fazer a instalação das dependencias do projeto digitando no prompt de comando :point_right: `npm install`
 
-:heavy_check_mark: Para rodar o projeto no navegador digitar o comando :point_right: ` npm start `
+:heavy_check_mark: Apos ter instalado as dependencias para rodar o projeto digitar no prompt de comando :point_right: ` npm start `
 
 ### Api utilizada para requisições ao BD:  https://github.com/Roger-dornelles/api-bluebank 
 
