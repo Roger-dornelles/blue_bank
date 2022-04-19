@@ -9,7 +9,9 @@
 
 Vai criar uma pasta com o nome do projeto.
 
-Após ter feito o clone do projeto entrar dentro da pasta do projeto, no prompt de comando para entrar dentro da pasta digitar :point_right: `cd "nome da pasta do projeto"`
+Após ter feito o clone do projeto entrar dentro da pasta do projeto, no prompt de comando para entrar dentro da pasta digitar 
+
+:point_right: `cd "nome da pasta do projeto"`
 
 :heavy_check_mark: Dentro da pasta do projeto fazer a instalação das dependencias do projeto digitando no prompt de comando :point_right: `npm install`
 
