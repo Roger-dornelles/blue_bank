@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Container } from './styled';
 
+import api from '../../api/signin';
+
 import { useNavigate } from 'react-router-dom';
 
 // components
@@ -16,11 +18,13 @@ const Signin = ()=>{
     const [ email, setEmail ] = useState('');
     const [ warning, setWarning ] = useState(false);
 
-    const handleSubmitSignin = (e)=>{
+    const handleSubmitSignin = async(e)=>{
         e.preventDefault();
 
         if(email){
-            navigate('/confirm_signin');
+            //navigate('/confirm_signin');
+            let teste = await api.signin();
+            console.log(teste)
         }else{
 
             setWarning('Digite seu Email.');
