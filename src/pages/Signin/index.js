@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Container } from './styled';
 
-import api from '../../api/signin';
-
 import { useNavigate } from 'react-router-dom';
 
 // components
@@ -22,9 +20,7 @@ const Signin = ()=>{
         e.preventDefault();
 
         if(email){
-            //navigate('/confirm_signin');
-            let teste = await api.signin();
-            console.log(teste)
+            navigate('/confirm_signin');
         }else{
 
             setWarning('Digite seu Email.');
