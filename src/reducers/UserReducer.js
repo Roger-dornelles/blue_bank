@@ -4,7 +4,8 @@ const initialState = {
     email:'',
     password:'',
     cpf:'',
-    name: ''
+    name: '',
+    userEmail: ''
 };
 
 const UserReducer = (state=initialState, action) =>{
@@ -24,6 +25,10 @@ const UserReducer = (state=initialState, action) =>{
 
         case 'CREATE_NAME':
             return { ...state, name:action.payload.name };
+        break;
+
+        case 'SAVE_EMAIL':
+            return { ...state, userEmail:action.payload.email};
         break;
     }
 

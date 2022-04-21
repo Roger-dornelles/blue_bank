@@ -27,7 +27,7 @@ const RegisterPassword = ()=>{
                 setTimeout(()=>{
                     setWarning('');
                 },2700);
-            }else if(password.length < 8){
+            }else if(password.length < 6){
                 setWarning('Senha Invalida.');
                 setTimeout(()=>{
                     setWarning('');
@@ -58,7 +58,7 @@ const RegisterPassword = ()=>{
             <form onSubmit={handleSubmitPassword}>
                 <label>
                     <MdHttps /><input type="text" value={password} onChange={e=>setPassword(e.target.value)} />
-                    {!warning && <p style={{fontSize:'14px'}}>Senha precisa ter mais de 8 caracteres.</p>}
+                    {!warning && <p style={{fontSize:'14px'}}>Senha precisa ter 6 ou mais caracteres.</p>}
                     {warning && <p>{warning}</p>}
                 </label>
 

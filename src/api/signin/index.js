@@ -2,11 +2,10 @@
 import api from '../ApiConfig';
 
 export default {
-    signin: async ()=>{
-        let email = 'teste@teste.com';
-        let password = '123456';
+    signin: async (email,password) => {
+
         let result = await api.post('/signin',{email,password});
         let json = result.data;
-        console.log(json);
+        return json;
     }
 }

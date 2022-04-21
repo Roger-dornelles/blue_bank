@@ -50,6 +50,10 @@ export const Container = styled.div`
                 margin-top: 75px;
                 color: #b90000;
             }
+
+            .success{
+                color: #00aa00;
+            }
         }
     } 
 `;

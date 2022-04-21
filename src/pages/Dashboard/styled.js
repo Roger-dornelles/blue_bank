@@ -35,9 +35,13 @@ export const Container = styled.div`
                 margin-top:-5px;
             }
 
-            a{
+            button{
                 color:#fff;
                 font-size:1.2em;
+                border: 0;
+                background-color: #73C2FF;
+                cursor: pointer;
+                text-decoration: underline;
             }
     
         }

@@ -1,25 +1,50 @@
-import { Link } from 'react-router-dom';
+import React,{ useState, useEffect}from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Container } from './styled';
+
+// js-cookie
+import Cookies from 'js-cookie';
+
+// api
+import api from '../../api/currentAccount';
 
 // icons 
 import { MdAccountCircle } from "react-icons/md";
 
 const Dashboard = ()=>{
+    const navigate = useNavigate();
 
+    const [valueAccount, setValueAccount] = useState('');
+
+    useEffect(()=>{
+        const account = async()=>{
+            let json = await api.account();
+            setValueAccount(json.initialvalue);
+        };
+        account();
+    },[])
+
+    const HandleClose = ()=>{
+        Cookies.set('token', '');
+        Cookies.set('id', '');
+        navigate('/');
+        window.location.reload('/');
+
+    };
 
     return (
         <Container>
             <div className="container-itens">
                 <div className="header">
                     <p><MdAccountCircle />Ola, Bem vindo</p>
-                    <Link to='/'>Sair</Link>
+                    <button onClick={HandleClose}>Sair</button>
                 </div>
 
                 <div className="description">
                     <Link to='/conta_corrente' className="balance">
                         <p>Saldo Atual</p>
-                        <span>R$ 2.557,45</span>
+                        <span>R$ {valueAccount}</span>
                     </Link>
 
                     <Link to='/cartao_credito' className="credit_card">

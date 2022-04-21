@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from './styled';
 
-const ButtonAdvance = ({children})=>{
+const ButtonAdvance = ({children,onclick})=>{
 
     return(
-        <Button>
+        <Button onClick={onclick}>
             {children}
         </Button>
     )
