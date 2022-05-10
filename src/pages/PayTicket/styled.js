@@ -28,16 +28,24 @@ export const Container = styled.div`
         flex-direction: column;
         margin-top:70px;
 
+        span{
+            position: absolute;
+            font-size:1.1em;
+            margin-top:-350px;
+        }
+
         label{
             width: 100%;
             display: flex;
             flex-direction: column;
+            margin-top:30px;
 
             svg{
                 position: absolute;
                 font-size:1.9em;
-                margin-top:-4px;
+                margin-top:30px;
             }
+
 
             input{
                 width: 100%;
@@ -48,12 +56,7 @@ export const Container = styled.div`
                 background-color: #73C2FF;
                 color: #fff;
                 padding-left: 35px;
-            }
-
-            span{
-                position: absolute;
-                margin-top:25px;
-                font-size:1em;
+                margin-top: 20px;
             }
 
             button{

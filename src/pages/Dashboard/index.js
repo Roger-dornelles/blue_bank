@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 
 // api
 import api from '../../api/currentAccount';
+import apiCreditCard from '../../api/creditCard';
 
 // icons 
 import { MdAccountCircle } from "react-icons/md";
@@ -16,13 +17,29 @@ const Dashboard = ()=>{
     const navigate = useNavigate();
 
     const [valueAccount, setValueAccount] = useState('');
+    const [ valueCreditCard, setValueCreditCard] = useState('');
 
     useEffect(()=>{
         const account = async()=>{
             let json = await api.account();
-            setValueAccount(json.initialvalue);
+            if(json.initialvalue){
+
+                setValueAccount(json.initialvalue);
+            }else{
+                setValueAccount('Saldo Indisponivel.');
+            }
         };
         account();
+
+        const creditCardLimit = async()=>{
+            let json = await apiCreditCard.creditCardLimit();
+            if(json.limit){
+                setValueCreditCard(json.limit);
+            }else{
+                setValueCreditCard('Saldo indisponivel.')
+            }
+        };
+        creditCardLimit();
     },[])
 
     const HandleClose = ()=>{
@@ -43,14 +60,15 @@ const Dashboard = ()=>{
 
                 <div className="description">
                     <Link to='/conta_corrente' className="balance">
-                        <p>Saldo Atual</p>
-                        <span>R$ {valueAccount}</span>
+                        <p>Conta Corrente</p>
+                        <span>Saldo Atual</span>
+                        <span>{valueAccount ? `R$ ${valueAccount}` : 'Saldo Indisponivel' }</span>
                     </Link>
 
                     <Link to='/cartao_credito' className="credit_card">
                         <p>Cartão de Crédito</p>
                         <span>Limite Disponivel</span>
-                        <span>R$ 3.115,09</span>
+                        <span>{valueCreditCard ? `R$ ${valueCreditCard}` : 'Limite Indisponivel' }</span>
                     </Link>
 
                     <Link to='/emprestimo' className="loan">

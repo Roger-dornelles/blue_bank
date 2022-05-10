@@ -17,6 +17,29 @@ export const Container = styled.div`
     p{
         font-size:1.2em;
         margin-top:50px;
-        margin-bottom:30px;
+        margin-bottom:10px;
+    }
+
+    span{
+        font-size:1em;
+    }
+
+    .warning{
+        position: absolute;
+        color: #bb0000;
+    }
+
+    .container-info{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top:50px;
+
+        .description-pix{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+        }
     }
 `;

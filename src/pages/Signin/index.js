@@ -17,9 +17,6 @@ const Signin = ()=>{
     const [ email, setEmail ] = useState('');
     const [ warning, setWarning ] = useState(false);
 
-    const onclick = (e)=>{
-        e.preventDefault();
-    };
 
     const handleSubmit = ()=>{
 

@@ -1,27 +1,51 @@
 import React,{ useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { Container } from './styled';
 
+import api from '../../api/pix';
+
 // icon
 import { FaUserAlt } from "react-icons/fa";
+
 const ConfirmPix = ()=>{
     const navigate = useNavigate();
+    const valuePix = useSelector(state=>state.user.pixValue);
 
-    const [ value, setValue ] = useState('');
+    const [ pixDestination, setPixDestination ] = useState('');
     const [ warning, setWarning ] = useState('');
     const [ success, setSuccess ] = useState('');
 
-    const handleSubmitConfirmPix = (e)=>{
+    const handleSubmitConfirmPix = async(e)=>{
         e.preventDefault();
 
         try{
-            if(value){
-                setSuccess('Pix realizado com sucesso.');
-                setTimeout(()=>{
-                    setSuccess('');
-                    navigate('/dashboard');
-                },2700);
+            if(pixDestination){
+
+                if(valuePix){
+                    try{
+                        let pixdestination = pixDestination
+                        let value = valuePix;
+                        let description = 'transferencia';
+                        let json = await api.transferValues(value,pixdestination,description);
+                        if(json){
+
+                            setSuccess(json);
+                            setTimeout(()=>{
+                                setSuccess('');
+                                navigate('/dashboard');
+                            },2700);
+                        }
+
+                    }catch(error) {
+                        setWarning('Ocorreu um erro tente novamente mais tarde.');
+                        setTimeout(()=>{
+                            setWarning('');
+                        },2700);
+                    }
+                }
+
             }else{
                 setWarning('Digite o PIX de destino.');
                 setTimeout(()=>{
@@ -42,7 +66,7 @@ const ConfirmPix = ()=>{
 
             <form onSubmit={handleSubmitConfirmPix}>
                 <label>
-                    <FaUserAlt /><input type="text" value={value} onChange={e=>setValue(e.target.value)}/>
+                    <FaUserAlt /><input type="text" value={pixDestination} onChange={e=>setPixDestination(e.target.value)}/>
                     {warning && <span>{warning}</span>}
                     {success && <span style={{ color:'#00a82b'}}>{success}</span>}
 

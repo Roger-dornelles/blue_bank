@@ -5,7 +5,8 @@ const initialState = {
     password:'',
     cpf:'',
     name: '',
-    userEmail: ''
+    userEmail: '',
+    pixValue: '',
 };
 
 const UserReducer = (state=initialState, action) =>{
@@ -29,6 +30,10 @@ const UserReducer = (state=initialState, action) =>{
 
         case 'SAVE_EMAIL':
             return { ...state, userEmail:action.payload.email};
+        break;
+
+        case 'CREATE_VALUE_PIX':
+            return { ...state, pixValue:action.payload.pixValue };
         break;
     }
 

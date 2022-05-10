@@ -31,41 +31,46 @@ const Signin = ()=>{
 
     const handleConfirmSignin = async(e)=>{
         e.preventDefault();
-        if(password.length >= 6){
-            let json = await api.signin(email,password);
+        try{
 
-            for(let i in json){
-
-                if(json[i] === 'E-mail invalido...'){
-                    setWarning(json[i]);
-
-                    setTimeout(()=>{
-                        navigate('/signin');
-                    },2700);
-
-                }else if(json[i] === 'Senha invalida...'){
-                    setWarning(json[i]);
-
-                    setTimeout(()=>{
-                        setWarning('');
-                    },2700);
-                }else{
-                    doLoggin(json.token,json.id);
-                    setSuccess("Logado com sucesso...");
-
-                    setTimeout(()=>{
-                        navigate('/dashboard');
-                        window.location.reload('/dashboard');
-                        
-                    },2500);
+            if(password.length >= 6){
+                let json = await api.signin(email,password);
+    
+                for(let i in json){
+    
+                    if(json[i] === 'E-mail invalido...'){
+                        setWarning(json[i]);
+    
+                        setTimeout(()=>{
+                            navigate('/signin');
+                        },2700);
+    
+                    }else if(json[i] === 'Senha invalida...'){
+                        setWarning(json[i]);
+    
+                        setTimeout(()=>{
+                            setWarning('');
+                        },2700);
+                    }else{
+                        doLoggin(json.token,json.id);
+                        setSuccess("Logado com sucesso...");
+    
+                        setTimeout(()=>{
+                            navigate('/dashboard');
+                            window.location.reload('/dashboard');
+                            
+                        },2500);
+                    };
+    
                 };
-
-            };
-        }else{
-            setWarning('Digite sua senha de 6 ou mais caracteres.');
-            setTimeout(()=>{
-                setWarning('');
-            },2700);
+            }else{
+                setWarning('Digite sua senha de 6 ou mais caracteres.');
+                setTimeout(()=>{
+                    setWarning('');
+                },2700);
+            }
+        }catch(error){
+            setWarning('Ocorreu um erro tente novamente mais tarde.')
         }
     }
 

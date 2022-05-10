@@ -1,6 +1,8 @@
 import React,{ useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+
 //component
 import ButtonBacks from '../../components/ButtonBacks';
 
@@ -11,7 +13,7 @@ import { mask, unMask } from 'remask';
 
 const Pix = () => {
     const pattern = ['9,99','99,99','999,99','9.999,99','99.999,99','999.999,99'];
-
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const [value, setValue ] = useState('');
@@ -21,7 +23,12 @@ const Pix = () => {
         e.preventDefault();
 
         if(value){
-            navigate('/confirmar_pix')
+            dispatch({
+                type:'CREATE_VALUE_PIX',
+                payload:{pixValue: value}
+            });
+            navigate('/confirmar_pix');
+
         }else{
             setWarning('Digite um valor...');
             setTimeout(()=>{
