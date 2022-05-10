@@ -4,21 +4,20 @@ import Cookies from 'js-cookie';
 
 export default {
     transfer: async (value, account, bank, typeAccount, agency, isNameValid, document)=>{
-        let id = await Cookies.get('id');
-        let token = await Cookies.get('token');
+        let id =  Cookies.get('id');
+        let token = Cookies.get('token');
 
         api.defaults.headers.Authorization = `Bearer ${token}`;
         let result = await api.post(`/transference/user/${id}`,{
-            value, 
-            account, 
-            bank, 
+            value: value, 
+            account: account, 
+            bank: bank, 
             type_destiny_account: typeAccount,
-            agency, 
+            agency: agency, 
             favored_name: isNameValid,
-            document
+            document: document
         });
         let json = await result.data;
-        console.log('JSON ', json);
         return json;
     }
 }

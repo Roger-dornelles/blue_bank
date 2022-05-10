@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Container } from './styled';
 
@@ -12,6 +13,8 @@ import apiBanks from '../../api/Banks';
 import apiTransfer from '../../api/Transfer';
 
 const Transfer = ()=>{
+    const navigate = useNavigate();
+
     const maskAgency = ['999','9999','9999-9'];
     const maskAccount = ['9999-9','999999-9','9999999-9','99999999-9','99999999999-9'];
     const maskCpf = ['999.999.999-99'];
@@ -51,7 +54,7 @@ const Transfer = ()=>{
     const handleSubmitForm = async(e)=>{
         e.preventDefault();
         
-  
+        try{
             
             if(typeAccount && banks && bank && agency && account && value && document && name){
 
@@ -76,6 +79,8 @@ const Transfer = ()=>{
                             setWarning('');
                         },2700);
                         return;
+                    }else{
+                        isNameValid = isNameValid[0];
                     };
                     //------------------------------------------------------------
                 }
@@ -113,7 +118,6 @@ const Transfer = ()=>{
                 }
                 
                 if(typeAccount && banks && bank && agency && account && value && document && isNameValid){
-                    
                     let json = await apiTransfer.transfer(
                         value, 
                         account, 
@@ -124,7 +128,18 @@ const Transfer = ()=>{
                         document
                     );
                     
-                    console.log('PAGE ',json);
+                    if(json){
+                        setSuccess(json);
+                        setTimeout(()=>{
+                            navigate('/dashboard');
+                            setSuccess('');
+                        },2700);
+                    }else{
+                        setWarning(json.error);
+                        setTimeout(()=>{
+                            setWarning('');
+                        },2700);
+                    }
                     
                 }
                 
@@ -137,7 +152,13 @@ const Transfer = ()=>{
     
             }
 
-    
+        }catch(error){
+            console.log('ERROR ', error)
+            setError('Ocorreu um erro tente novamente mais tarde.');
+            setTimeout(()=>{
+                setError('');
+            },2700);
+        };
     };
 
     return(
